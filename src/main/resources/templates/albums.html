@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li>home</li>
+            <li>Albums</li>
+            <li>about us</li>
+        </ul>
+    </nav>
+</header>
+
+<div th:each=" theAlbums: ${albums}">
+
+    <h1> Album: <span th:text="${theAlbums.title}"></span></h1>
+    <p> Artist: <span th:text="${theAlbums.artist}"></span></p>
+    <p> SongCount: <span th:text="${theAlbums.songCount}"></span></p>
+    <p> length: <span th:text="${theAlbums.length}"></span></p>
+
+    <img src= <span th:src="${theAlbums.imageUrl}">
+
+
+
+</div>
+
+
+<footer>
+    <ul>
+
+        <li>contact us</li>
+        <li>about us</li>
+
+
+    </ul>
+</footer>
+</body>
+</html>
