@@ -21,13 +21,13 @@ create:
  a class named GeneralController. 
 Annotated with a @Controller 
 This allows the implemented classes to be auto detected through class path scanning. 
--	 Routs are provide the @GetMapping. 
+-	 Routs provided by the @GetMapping. 
 -	We have several routs in our application 
 1.	Homepage (“/”)
 You will find a page for the spring application
 2.	Hello world greeting (“hello”)
 You will have a page that returns the greeting hello world 
-3.	Albums (“/albums”)
+3.	Albums (“/myAlbums”)
 You will have a page that renders three albums, each album with contain:
 -	A title 
 -	An artist 
@@ -37,6 +37,57 @@ You will have a page that renders three albums, each album with contain:
 
 4.	The Capitalized words (“/capitalized/ {words}”)
 You will have a page that returns the word you replace in the rout capitalized 
+
+> lab-12
+
+ we continued working on  application named `Songer` using spring initializer and added the following dependencies:
+
+  - JPA
+  - postgresql 
+
+  continue working on: 
+ 1. a class named Album, add an id property 
+ make sure you have a default constructor 
+ annotate with
+ @Entity
+ @Id
+ @GeneratedValue
+
+ 2. create and interface and extended it with CrudRepository <Album, Integer>
+ 3. create a database in the terminal  
+
+ 4. in your AlbumController 
+ annotate with: 
+ @Autowired
+ create AlbumRepository object
+
+ 5. create a map request for the following routs:
+
+ -  ("/addAlbum")
+ you will find a page that contains a form that enables the user to insert info about the album he wants to add.
+ this request should be of type post 
+	A title 
+	An artist 
+	A song count 
+	Length 
+	Image url 
+    once the user clicks on add button he will be redirected to the albums page. 
+ 
+ -  (“/albums”)
+You will find a page that will list all the albums added by the user 
+
+
+
+
+
+
+
+
+
+  
+
+
+
 
 
 
