@@ -10,9 +10,10 @@
 <header>
     <nav>
         <ul>
-            <li>home</li>
-            <li>Albums</li>
-            <li>about us</li>
+            <li><a href="/">home</a></li>
+            <li><a href="/albums">Albums</a></li>
+            <li><a href="/addAlbum">Add Album</a></li>
+            <li><a href="/songs">All Songs</a></li>
         </ul>
     </nav>
 </header>
@@ -28,6 +29,12 @@
     <p> length: <span th:text="${albums.length}"></span></p>
 
     <img src= <span th:src="${albums.imageUrl}">
+
+    <h1><a th:href="${'/albums/'+albums.id}">view Album</a></h1>
+
+    <h1><a th:href="${'/addSongs/'+albums.id}">Add Song</a></h1>
+
+
 
 
 

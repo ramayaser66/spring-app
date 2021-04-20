@@ -31,9 +31,6 @@ public class GeneralController {
 
 
 
-
-
-
     @GetMapping("/capitalize/{word}")
     public String showTemplate(Model m, @PathVariable("word") String word){
 

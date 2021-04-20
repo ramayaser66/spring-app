@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/albums">Albums</a></li>
+            <li><a href="/addAlbum">Add Album</a></li>
+            <li><a href="/songs">All Songs</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div>
+
+    <h1> Album: <span th:text="${album.title}"></span></h1>
+    <p> Artist: <span th:text="${album.artist}"></span></p>
+    <p> SongCount: <span th:text="${album.songCount}"></span></p>
+    <p> length: <span th:text="${album.length}"></span></p>
+
+    <img src= <span th:src="${album.imageUrl}">
+
+
+
+</div>
+
+<div th:each=" song: ${songs}">
+
+    <h1> Title: <span th:text="${song.title}"></span></h1>
+    <p> Length: <span th:text="${song.length}"></span></p>
+    <p> SongCount: <span th:text="${song.trackNumber}"></span></p>
+
+
+
+
+
+
+</div>
+
+
+<footer>
+    <ul>
+
+        <li>contact us</li>
+        <li>about us</li>
+
+
+    </ul>
+</footer>
+
+</body>
+</html>

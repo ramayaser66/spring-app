@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Capitalized test</title>
+    <title>ALL SONGS</title>
+
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
 <header>
     <nav>
         <ul>
@@ -18,12 +18,24 @@
     </nav>
 </header>
 
-<section>
+<h1> ALL SONGS </h1>
 
 
-<p> the capitalized word: <span th:text=${word}></span> </p>
-</section>
+
+<div th:each=" songs: ${songs}">
+
+
+    <h1> Title: <span th:text="${songs.title}"></span></h1>
+    <p> Length: <span th:text="${songs.length}"></span></p>
+    <p> SongCount: <span th:text="${songs.trackNumber}"></span></p>
+
+
+
+
+
+
 </div>
+
 
 <footer>
     <ul>

@@ -1,9 +1,7 @@
 package com.lab11.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +14,13 @@ public class Album {
     private int songCount;
     private double length;
     private String imageUrl;
+
+
+    //
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    private List<Song> songs;
+
+
 
     public Album() {
 
@@ -70,8 +75,17 @@ public class Album {
     }
 
 
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+
+
     public Integer getId() {
         return id;
+
+
+
     }
 
 

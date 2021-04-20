@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Capitalized test</title>
+    <title>Title</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
 <header>
     <nav>
         <ul>
@@ -18,12 +17,34 @@
     </nav>
 </header>
 
-<section>
 
+<div>
+    <h2>
+        Add a new song
+    </h2>
 
-<p> the capitalized word: <span th:text=${word}></span> </p>
-</section>
 </div>
+
+
+<form action="/songs"  method="post">
+
+    <input type="hidden" th:value="${album}" name="albumId">
+
+    <label>Title:  </label>
+    <input type="text" name="title" >
+
+    <label>Song Count:  </label>
+    <input type="text" name="trackNumber" >
+
+    <label>length:  </label>
+    <input type="text" name="length" >
+    <input type="submit" value="add song">
+
+</form>
+
+
+
+
 
 <footer>
     <ul>

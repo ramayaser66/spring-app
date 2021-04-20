@@ -12,15 +12,18 @@
 <header>
     <nav>
         <ul>
-            <li>home</li>
-            <li>Albums</li>
-            <li>about us</li>
+            <li><a href="/">home</a></li>
+            <li><a href="/albums">Albums</a></li>
+            <li><a href="/addAlbum">Add Album</a></li>
+            <li><a href="/songs">All Songs</a></li>
         </ul>
     </nav>
 </header>
 
 <div th:each=" theAlbums: ${albums}">
+    <h1><a th:href="${'/albums/'+album.id}">More Inforamtion</a></h1>
 
+<h1> rama </h1>
     <h1> Album: <span th:text="${theAlbums.title}"></span></h1>
     <p> Artist: <span th:text="${theAlbums.artist}"></span></p>
     <p> SongCount: <span th:text="${theAlbums.songCount}"></span></p>
