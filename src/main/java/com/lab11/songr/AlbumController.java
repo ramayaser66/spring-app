@@ -2,12 +2,11 @@ package com.lab11.songr;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
@@ -15,6 +14,14 @@ import java.util.List;
 
 @Controller
 public class AlbumController {
+
+    @Autowired
+    AlbumRepository albumRepository;
+
+    @Autowired
+    SongRepository songRepository;
+
+
 
     @GetMapping("/myAlbums")
 
@@ -38,18 +45,19 @@ public class AlbumController {
 
     //lab-12
 
-    @Autowired
-    AlbumRepository albumRepository;
+
 
     @GetMapping("/albums")
     public String getAllStudents(Model m){
         m.addAttribute("albums" ,albumRepository.findAll());
         return "myAlbums.html";
+
     }
+
+
 
     @GetMapping("/addAlbum")
     public String getAddAlbum(){
-
         return "addAlbum.html";
     }
 
@@ -67,6 +75,34 @@ public class AlbumController {
 
 
 
+    @GetMapping("/albums/{id}")
+    public String getAllAlbums(@PathVariable int id , Model m){
+
+        try {
+            Album album = albumRepository.findById(id).get();
+            List<Song> song = songRepository.findSongById(id);
+            m.addAttribute("songs", song);
+            m.addAttribute("album", album);
+            return "theAlbum.html";
+        }catch (Exception ex){
+            return "error.html";
+        }
+    }
 
 
-}
+
+
+
+    @GetMapping("/addSongs/{id}")
+    public String getAddedSongs(@PathVariable int id , Model m) {
+
+        try {
+            m.addAttribute("album", id);
+
+            return "addedSongs.html";
+        }catch (Exception ex){
+            return "error.html";
+        }
+    }
+
+    }
